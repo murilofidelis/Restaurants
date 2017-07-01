@@ -1,5 +1,9 @@
 # Meat - Angular App Starter
 
+### Instalando as Dependências
+
+`npm install`
+
 ### Inicializando o Servidor
 
 `ng serve` ou `npm start`
