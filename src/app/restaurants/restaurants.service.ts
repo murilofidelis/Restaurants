@@ -13,11 +13,16 @@ export class RestaurantsService {
 
     constructor(private http: Http) { }
 
-    getRestaurants(): Observable<Restaurant[]> {
+    buscarRestaurantes(): Observable<Restaurant[]> {
         return this.http.get(`${MEAT_API}/restaurants`)
             .map(Response => Response.json())
             .catch(ErroHandler.handleError)
     }
 
+    buscarRestaurantePorId(id: string): Observable<Restaurant> {
+        return this.http.get(`${MEAT_API}/restaurants/${id}`)
+            .map(Response => Response.json())
+            .catch(ErroHandler.handleError)
+    }
 
 }
