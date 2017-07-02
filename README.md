@@ -8,6 +8,10 @@
 
 `ng serve` ou `npm start`
 
+### Inicializando o servico
+
+`json-server db.json`
+
 Expressões regulares usadas na validação de formulários
 
 ### Email Regex

@@ -33,23 +33,22 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer detail-footer">
-          <a class="pull-left detail-active" href="detail-restaurant.html">
+          <a class="pull-left detail-active" routerLinkActive="detail-active" [routerLink]="['menu']">
                    Menu
                 </a>
-          <a class="pull-right" href="detail-restaurant-reviews.html">
+          <a class="pull-right" routerLinkActive="detail-active" [routerLink]="['reviews']">
                    Avaliações
                 </a>
         </div>
       </div>
     </div>
     <!-- /.col-xs-12 -->
-
   </div>
 
 
   <div class="row">
-
-    <mt-menu></mt-menu>
+    <!-- incluido o cnteudo do menu e das avaliações atraves da rota-->
+    <router-outlet></router-outlet>
 
   </div>
 
