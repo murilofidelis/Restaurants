@@ -18,7 +18,7 @@ export class ShoppingCartService {
     }
 
     removerItem(item: CartItem) {
-        this.items.splice(this.items.indexOf(item), -1)
+        this.items.splice(this.items.indexOf(item), 1)
     }
 
     total(): number {
