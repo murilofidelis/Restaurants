@@ -25,7 +25,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   remover(item: any) {
-    console.log("TTTTTTT")
     this.shoppingCartService.removerItem(item)
   }
 
