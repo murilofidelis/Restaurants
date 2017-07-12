@@ -1,10 +1,10 @@
-<div class="col-xs-12" *ngIf="!items" >
-<p>Não itens no carrinho. Que tal começar por <a [routerLink]="['/restaurants']">aqui ?</a></p>
+<div class="col-xs-12" *ngIf="items.length === 0">
+  <p>Não itens no carrinho. Que tal começar por <a [routerLink]="['/restaurants']">aqui ?</a></p>
 </div>
 
 <div class="col-xs-12 table-responsive ">
 
-  <table class="table table-striped " *ngIf="items" >
+  <table class="table table-striped " *ngIf="items.length > 0">
     <thead>
       <tr>
         <th class="text-center ">Quantidade</th>
@@ -17,15 +17,15 @@
     <tbody>
       <tr *ngFor="let item of items">
         <td class="text-center ">
-          <a (click)="decrementarQuantidade(item)" class="btn btn-sm "><i class="fa fa-minus "></i></a> {{item.quantidade}}
-          <a (click)="incrementarQuantidade(item)" class="btn btn-sm "><i class="fa fa-plus "></i></a>
+          <a (click)="emitDecreasyQty(item)" class="btn btn-sm "><i class="fa fa-minus "></i></a> {{item.quantidade}}
+          <a (click)="emitIncreasyQty(item)" class="btn btn-sm "><i class="fa fa-plus "></i></a>
         </td>
-        <td> {{item.itemDoMenu.name}}</td>
+        <td>{{item.menuItem.name}} </td>
 
-        <td>{{item.itemDoMenu.description}}</td>
+        <td>{{item.menuItem.description}}</td>
         <td class="text-right ">{{item.calcularValor() |currency: 'BRL':true}}</td>
         <td class="text-right ">
-          <a (click)="removeQuantidade(item)" class="btn btn-sm danger "><i class="fa fa-remove "></i></a>
+          <a (click)="emitRemove(item)" class="btn btn-sm danger "><i class="fa fa-remove "></i></a>
         </td>
       </tr>
     </tbody>

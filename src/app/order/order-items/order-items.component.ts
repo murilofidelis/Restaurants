@@ -8,22 +8,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class OrderItemsComponent implements OnInit {
 
   @Input() items: CartItem[]
-  @Output() incrementar = new EventEmitter<CartItem>()
-  @Output() decrementar = new EventEmitter<CartItem>()
-  @Output() remover = new EventEmitter<CartItem>()
+  @Output() increasyQty = new EventEmitter<CartItem>()
+  @Output() decreasyQty = new EventEmitter<CartItem>()
+  @Output() remove = new EventEmitter<CartItem>()
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  incrementarQuantidade(item: CartItem) {
-    this.incrementar.emit(item)
+  emitIncreasyQty(item: CartItem) {
+    this.increasyQty.emit(item)
   }
-  decrementarQuantidade(item: CartItem) {
-    this.decrementar.emit(item)
+  emitDecreasyQty(item: CartItem) {
+    this.decreasyQty.emit(item)
   }
-  removeQuantidade(item: CartItem) {
-    this.remover.emit(item)
+  emitRemove(item: CartItem) {
+    this.remove.emit(item)
   }
 }

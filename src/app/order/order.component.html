@@ -34,7 +34,7 @@
 
         <div class="col-sm-3 col-xs-6">
           <mt-input-container>
-            <input type="text " class="form-control" name="complemento " ngModel placeholder="Complemento ">
+            <input type="text " class="form-control" name="complemento" ngModel placeholder="Complemento ">
           </mt-input-container>
         </div>
         <!-- /.col -->
@@ -48,7 +48,10 @@
           <p class="lead ">Itens do Pedido:</p>
         </div>
         <!-- TABELA DE ITENS -->
-        <mt-order-items></mt-order-items>
+        <!--increasyQty e  decreasyQty então em OrderItemsComponent-->
+        <!-- increaseQty() e decreaseQty() estão em OrderComponent-->
+        <mt-order-items [items]="cartItems()" (increasyQty)="increaseQty($event)" (decreasyQty)="decreaseQty($event)" (remove)="remove($event)">
+        </mt-order-items>
 
         <!-- /.col -->
       </div>
