@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './order.component.html'
 })
 export class OrderComponent implements OnInit {
+  // valor fixo de exemplo
+  valorDoFrete: number = 8
 
   constructor(private orderService: OrderService) { }
 
@@ -18,6 +20,10 @@ export class OrderComponent implements OnInit {
   ]
 
   ngOnInit() {
+  }
+
+  itemsValue(): number {
+    return this.orderService.itemsValue()
   }
 
   cartItems(): CartItem[] {

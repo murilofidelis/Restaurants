@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class OrderService {
-    
+
     constructor(private cartService: ShoppingCartService) { }
 
     cartItems(): CartItem[] {
@@ -19,5 +19,9 @@ export class OrderService {
     }
     remove(item: CartItem) {
         this.cartService.removerItem(item)
+    }
+
+    itemsValue(): number {
+        return this.cartService.total()
     }
 }

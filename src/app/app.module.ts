@@ -23,7 +23,8 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { OrderComponent } from './order/order.component';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
-import { OrderItemsComponent } from './order/order-items/order-items.component'
+import { OrderItemsComponent } from './order/order-items/order-items.component';
+import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component'
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { OrderItemsComponent } from './order/order-items/order-items.component'
     OrderComponent,
     InputComponent,
     RadioComponent,
-    OrderItemsComponent
+    OrderItemsComponent,
+    DeliveryCostsComponent
   ],
   imports: [
     BrowserModule,
