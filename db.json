@@ -370,5 +370,36 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "endereco": "teste",
+      "numero": "12",
+      "complemento": "casa 2",
+      "opcaoPagamentoSelecionada": "MON",
+      "orderItems": [
+        {
+          "qunatity": 1,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "endereco": "rua 214",
+      "numero": "214",
+      "complemento": "casa 1",
+      "opcaoPagamentoSelecionada": "MON",
+      "orderItems": [
+        {
+          "qunatity": 1,
+          "menuId": "donut"
+        },
+        {
+          "qunatity": 1,
+          "menuId": "bread"
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
