@@ -8,10 +8,10 @@ import { NgModel } from '@angular/forms'
 
 export class InputComponent implements OnInit, AfterContentInit {
 
-  @Input() label: string
-  @Input() errorMessage: string
+  @Input() label: string;
+  @Input() errorMessage: string;
 
-  input: any
+  input: any;
 
   @ContentChild(NgModel) model: NgModel
 

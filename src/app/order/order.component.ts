@@ -2,8 +2,9 @@ import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
 import { OrderService } from './order.service';
 import { RadioOption } from './../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';
-import { Order, OrderItem } from './order.model'
-import { Router } from '@angular/router'
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Order, OrderItem } from './order.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mt-order',
@@ -12,8 +13,12 @@ import { Router } from '@angular/router'
 export class OrderComponent implements OnInit {
   // valor fixo de exemplo
   valorDoFrete: number = 8
+  orderForm: FormGroup;
 
-  constructor(private orderService: OrderService, private router: Router) { }
+  constructor(
+    private orderService: OrderService,
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   paymentOptions: RadioOption[] = [
     { label: 'Dinheiro', value: 'MON' },
