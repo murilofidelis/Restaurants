@@ -27,6 +27,15 @@ export class OrderComponent implements OnInit {
   ]
 
   ngOnInit() {
+    this.orderForm = this.formBuilder.group({
+      name: this.formBuilder.control(''),
+      email: this.formBuilder.control(''),
+      emailConfirmation: this.formBuilder.control(''),
+      address: this.formBuilder.control(''),
+      number: this.formBuilder.control(''),
+      optionalAddress: this.formBuilder.control(''),
+      paymentOption: this.formBuilder.control('')
+    })
   }
 
   itemsValue(): number {
@@ -55,7 +64,7 @@ export class OrderComponent implements OnInit {
       .subscribe((orderId: string) => {
         this.router.navigate(['/order-summary'])
         console.log(`compra concluída: ${orderId}`)
-        //limpar 
+        //limpar
         this.orderService.clear()
       })
     console.log(order)
