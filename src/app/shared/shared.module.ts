@@ -6,26 +6,42 @@ import { InputComponent } from './input/input.component';
 import { RadioComponent } from './radio/radio.component';
 import { RatingComponent } from './rating/rating.component';
 
+import { OrderService } from './../order/order.service';
+import { RestaurantsService } from './../restaurants/restaurants.service';
+import { ShoppingCartService } from './../restaurant-detail/shopping-cart/shopping-cart.service';
+import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
+
+
 @NgModule({
-    declarations: [
-        InputComponent,
-        RadioComponent,
-        RatingComponent
-    ],
-    imports: [
-        ReactiveFormsModule,
-        CommonModule,
-        FormsModule
-    ],
-    exports: [
-        InputComponent,
-        RadioComponent,
-        RatingComponent,
-        ReactiveFormsModule,
-        CommonModule,
-        FormsModule
-    ]
+  declarations: [
+    InputComponent,
+    RadioComponent,
+    RatingComponent
+  ],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule
+  ],
+  exports: [
+    InputComponent,
+    RadioComponent,
+    RatingComponent,
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule
+  ]
 })
 export class SharedModule {
 
+  /**
+   * com essa configuração, não precisa mais do CoreModule.
+   */
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [ShoppingCartService, RestaurantsService, OrderService]
+    };
+
+  }
 }
