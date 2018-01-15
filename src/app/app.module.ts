@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { ROUTES } from './app.routes';
 
@@ -39,8 +39,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     HttpModule,
     SharedModule.forRoot(), // SharedModule + providers
-    RouterModule.forRoot(ROUTES),
-   // CoreModule
+    /**
+     * preloadingStrategy: carregas os modulos tardiamente em backgound após carregar a aplicação.
+     */
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
+    // CoreModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
