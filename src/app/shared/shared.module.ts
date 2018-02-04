@@ -10,13 +10,15 @@ import { OrderService } from './../order/order.service';
 import { RestaurantsService } from './../restaurants/restaurants.service';
 import { ShoppingCartService } from './../restaurant-detail/shopping-cart/shopping-cart.service';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
+import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 
 
 @NgModule({
   declarations: [
     InputComponent,
     RadioComponent,
-    RatingComponent
+    RatingComponent,
+    SnackbarComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -29,7 +31,8 @@ import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
     RatingComponent,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    SnackbarComponent
   ]
 })
 export class SharedModule {
