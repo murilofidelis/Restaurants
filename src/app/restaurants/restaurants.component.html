@@ -2,14 +2,29 @@
 <section class="content-header">
   <h1>
     Todos os Restaurantes
+    <a class="search-link pull-right" (click)="toggleSearch()">
+      <i class="fa fa-search"></i>
+    </a>
   </h1>
+
+  <!-- BARRA DE BUSCA -->
+
+  <div class="row">
+    <div class="col-xs-12 search-bar" [@togglesearch]="searchBarState">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="O que você está procurando?">
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
 
 
 <section class="content">
 
   <div class="row">
-    <div *ngFor="let objRestaurant of restaurants"  class="col-sm-6 col-xs-12" >
+    <div *ngFor="let objRestaurant of restaurants" class="col-sm-6 col-xs-12">
 
       <mt-restaurant [objRestaurant]="objRestaurant"></mt-restaurant>
 
