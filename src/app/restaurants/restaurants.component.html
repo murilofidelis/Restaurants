@@ -11,9 +11,9 @@
 
   <div class="row">
     <div class="col-xs-12 search-bar" [@togglesearch]="searchBarState">
-      <form>
+      <form [formGroup]="searchForm">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="O que você está procurando?">
+          <input type="text" formControlName="searchControl" class="form-control" placeholder="O que você está procurando?">
         </div>
       </form>
     </div>
