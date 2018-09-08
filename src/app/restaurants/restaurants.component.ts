@@ -4,6 +4,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 import { Restaurant } from './restaurant/restaurant.model';
 
@@ -45,6 +48,9 @@ export class RestaurantsComponent implements OnInit {
     });
 
     this.searchControl.valueChanges
+      .debounceTime(1000) //espera 1s para realizar a pesquisa
+      .distinctUntilChanged() //so realiza a pesquisa se o texto digitado for difrente do ultimo texto digitado
+      .do(searchTerm => console.log(searchTerm))//apenas imprime
       .switchMap(searchTerm => this.restaurantsService.buscarRestaurantes(searchTerm))
       .subscribe(restaurants => this.restaurants = restaurants);
 
