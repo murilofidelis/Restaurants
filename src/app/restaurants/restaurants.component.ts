@@ -1,3 +1,4 @@
+
 import { RestaurantsService } from './restaurants.service';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
@@ -7,6 +8,9 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/Observable/from';
+import { Observable } from 'rxjs/Observable';
 
 import { Restaurant } from './restaurant/restaurant.model';
 
@@ -48,10 +52,11 @@ export class RestaurantsComponent implements OnInit {
     });
 
     this.searchControl.valueChanges
-      .debounceTime(1000) //espera 1s para realizar a pesquisa
-      .distinctUntilChanged() //so realiza a pesquisa se o texto digitado for difrente do ultimo texto digitado
-      .do(searchTerm => console.log(searchTerm))//apenas imprime
-      .switchMap(searchTerm => this.restaurantsService.buscarRestaurantes(searchTerm))
+      .debounceTime(1000) // espera 1s para realizar a pesquisa
+      .distinctUntilChanged() // so realiza a pesquisa se o texto digitado for difrente do ultimo texto digitado
+      .do(searchTerm => console.log(searchTerm)) // apenas imprime
+      .switchMap(searchTerm => this.restaurantsService.buscarRestaurantes(searchTerm)
+        .catch(error => Observable.from([]))) // tratamento para não quebrar o valueChanges quando houver algum erro.
       .subscribe(restaurants => this.restaurants = restaurants);
 
     this.restaurantsService.buscarRestaurantes().subscribe(allRestaurants => this.restaurants = allRestaurants);
