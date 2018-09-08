@@ -10,7 +10,7 @@
 
 ### Inicializando o servico
 
-`json-server db.json`
+`node .\backend\serve`
 
 Expressões regulares usadas na validação de formulários
 
