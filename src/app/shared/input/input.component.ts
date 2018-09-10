@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, NgModule, ContentChild, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
 import { NgModel, FormControlName } from '@angular/forms'
 
 @Component({
@@ -10,6 +10,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   @Input() label: string;
   @Input() errorMessage: string;
+  @Input() showTip: Boolean = true;
 
   input: any;
 
@@ -24,7 +25,7 @@ export class InputComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this.input = this.model || this.control
     if (this.input === undefined) {
-      throw new Error("Esse componente precisa ser usado com uma diretiva ngModel ou FormControlName")
+      throw new Error('Esse componente precisa ser usado com uma diretiva ngModel ou FormControlName');
     }
   }
   // validar campos
