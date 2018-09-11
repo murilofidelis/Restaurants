@@ -519,6 +519,22 @@
       "email": "adm@adm.com",
       "password": "123",
       "id": 10
+    },
+    {
+      "name": "Murilo",
+      "email": "murilo@test.com",
+      "emailConfirmation": "murilo@test.com",
+      "address": "teste",
+      "number": "12",
+      "optionalAddress": "12",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "qunatity": 1,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 11
     }
   ]
 }
