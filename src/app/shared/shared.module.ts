@@ -15,6 +15,7 @@ import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { NotificationService } from './messages/notification.service';
 import { LoginService } from '../security/login/login.service';
 import { LoggedInGuard } from '../security/loggedin.guard';
+import { LeaveOrderGuard } from '../order/leave-order.guard';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [ShoppingCartService, RestaurantsService, OrderService, NotificationService, LoginService,
-        LoggedInGuard]
+        LoggedInGuard, LeaveOrderGuard]
     };
 
   }

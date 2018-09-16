@@ -16,8 +16,10 @@ export class OrderComponent implements OnInit {
   numberPattern = /^[0-9]*$/
 
   // valor fixo de exemplo
-  valorDoFrete: number = 8
+  valorDoFrete: Number = 8
   orderForm: FormGroup;
+
+  orderId: string;
 
   constructor(
     private orderService: OrderService,
@@ -75,15 +77,23 @@ export class OrderComponent implements OnInit {
   remove(item: CartItem) {
     this.orderService.remove(item)
   }
-  //finalizar compra
+
+  isOrderCompleted(): boolean {
+    return this.orderId !== undefined;
+  }
+
+
+  // finalizar compra
   checkOrder(order: Order) {
     order.orderItems = this.cartItems()
       .map((item: CartItem) => new OrderItem(item.quantidade, item.menuItem.id))
     this.orderService.checkOrder(order)
-      .subscribe((orderId: string) => {
+      .do((orderId: string) => {
+        this.orderId = orderId;
+      }).subscribe((orderId: string) => {
         this.router.navigate(['/order-summary'])
         console.log(`compra concluída: ${orderId}`)
-        //limpar
+        // limpar
         this.orderService.clear()
       })
     console.log(order)

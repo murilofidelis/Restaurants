@@ -11,7 +11,7 @@ export const handleAuthenctication = (req: Request, resp: Response) => {
 
     const dbUser = users[user.email];
 
-    const token = jwt.sign({ sub: dbUser.email, iss: 'meat-api', }, 'meat-api-password');
+    const token = jwt.sign({ sub: dbUser.email, iss: 'meat-api' }, 'meat-api-password');
 
     resp.json({ name: dbUser.name, email: dbUser.email, accessToken: token });
 
